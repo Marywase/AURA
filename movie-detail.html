@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Movies - Your Ultimate Movie Hub</title>
+    <link rel="stylesheet" href="stylesheet/movie-detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="header-left">
+        <div class="logo"><i class="fas fa-globe"></i> <span>AURA</span></div>
+        <nav class="main-nav">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="movie.html" class="nav-item active">Movies</a>
+          <a href="about.html" class="nav-item">About</a>
+        </nav>
+      </div>
+
+      <div class="header-right-mobile">
+        <label class="hamburger">
+          <input type="checkbox" id="hamburgerCheckbox" />
+          <svg viewBox="0 0 32 32">
+            <path
+              class="line line-top-bottom"
+              d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+            ></path>
+            <path class="line" d="M7 16 27 16"></path>
+          </svg>
+        </label>
+      </div>
+    </header>
+
+    <div class="mobile-nav-overlay">
+      <div class="mobile-menu-close-btn"></div>
+
+      <div class="mobile-menu-logo"></div>
+
+      <div class="menu-header">
+        <a href="log in.html" class="btn" id="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </a>
+        <a href="log in.html" class="btn btn-primary" id="signup-btn">
+          Sign Up
+        </a>
+      </div>
+
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="movie.html"><i class="fas fa-film"></i> Movies</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      </nav>
+    </div>
+
+    <main>
+      <section class="page-header movie-details-header intro">
+        <div class="container">
+          <div class="movie-details">
+            <div id="loading-state">
+              <p>Loading movie details...</p>
+            </div>
+
+            <div id="error-state">
+              <p>Failed to load movie details. Please try again.</p>
+            </div>
+
+            <div id="movie-content">
+              <div class="movie-poster">
+                <img id="movie-poster" src="" alt="Movie Poster" />
+              </div>
+              <div class="details-content">
+                <h5 class="director" id="movie-studio"></h5>
+                <h2 class="title" id="movie-title"></h2>
+                <div class="banner-meta" id="movie-meta-tags">
+                  <span class="meta-quality" id="movie-quality">HD</span>
+                  <span class="meta-tag" id="movie-genres"
+                    ><i class="fas fa-film"></i> <span></span
+                  ></span>
+                  <span class="meta-tag" id="movie-release-date"
+                    ><i class="fas fa-calendar-alt"></i>
+                    <span class="date-text"></span
+                  ></span>
+                  <span class="meta-tag" id="movie-runtime"
+                    ><i class="far fa-clock"></i>
+                    <span class="runtime-text"></span
+                  ></span>
+                </div>
+                <p class="desc" id="movie-overview"></p>
+                <div class="movie-action-buttons">
+                  <a href="#" class="action-btn primary-btn" id="watch-now-btn"
+                    ><i class="fas fa-play"></i> Watch Now</a
+                  >
+                  <a
+                    href="#"
+                    class="action-btn secondary-btn"
+                    id="watch-trailer-btn"
+                    data-video-id=""
+                    ><i class="fas fa-play-circle"></i> Watch Trailer</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="trailer-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <div id="trailer-player"></div>
+      </div>
+    </div>
+
+    <script src="Js/movie-detail.js"></script>
+  </body>
+</html>

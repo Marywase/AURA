@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Movies - Your Ultimate Movie Hub</title>
+    <link rel="stylesheet" href="stylesheet/movie.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="header-left">
+        <div class="logo"><i class="fas fa-globe"></i> <span>AURA</span></div>
+      </div>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="movie.html" class="nav-item active">Movies</a>
+        <a href="about.html" class="nav-item">About</a>
+      </nav>
+
+      <label class="hamburger">
+        <input type="checkbox" id="hamburgerCheckbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </header>
+
+    <div class="mobile-menu-wrapper" id="mobileMenu">
+      <div class="menu-header">
+        <div class="menu-header">
+          <a href="log in.html" id="login-btn" class="btn">
+            <i class="fas fa-sign-in-alt"></i> Log In
+          </a>
+          <a href="log in.html" id="signup-btn" class="btn"> Sign Up </a>
+        </div>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="movie.html"><i class="fas fa-film"></i> Movies</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      </nav>
+    </div>
+
+    <div class="container">
+      <header class="header">
+        <h1>Movies</h1>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="sort-dropdown">
+            <select id="sort-by">
+              <option value="popularity.desc">New in cinema</option>
+              <option value="vote_average.desc">Top Rated</option>
+              <option value="release_date.desc">Release Date (Newest)</option>
+              <option value="release_date.asc">Release Date (Oldest)</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <aside class="filters-sidebar">
+          <h2>Filters</h2>
+
+          <div class="filter-group">
+            <label for="content-type">Type of content</label>
+            <select id="content-type">
+              <option value="">All types</option>
+              <option value="movie">Movies</option>
+              <option value="tv">TV Shows</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="genre">Genre</label>
+            <select id="genre">
+              <option value="">All genres</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="country">Country of manufacture</label>
+            <select id="country">
+              <option value="">All countries</option>
+              <option value="US">United States</option>
+              <option value="GB">United Kingdom</option>
+              <option value="CA">Canada</option>
+              <option value="FR">France</option>
+              <option value="DE">Germany</option>
+              <option value="IN">India</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="release-year">Release date</label>
+            <select id="release-year">
+              <option value="">All years</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="age-rating">Age rating</label>
+            <select id="age-rating">
+              <option value="">No limits</option>
+              <option value="G">G - General Audiences</option>
+              <option value="PG">PG - Parental Guidance Suggested</option>
+              <option value="PG-13">PG-13 - Parents Strongly Cautioned</option>
+              <option value="R">R - Restricted</option>
+              <option value="NC-17">NC-17 - Adults Only</option>
+            </select>
+          </div>
+        </aside>
+
+        <section class="movie-grid-area">
+          <div class="movie-grid-header">
+            <span class="movie-count">Found 0 material</span>
+          </div>
+          <div class="movie-grid" id="movie-grid"></div>
+          <div class="loading-indicator" id="loading-indicator">
+            Loading movies...
+          </div>
+          <div class="no-results" id="no-results">
+            No movies found matching your criteria.
+          </div>
+        </section>
+      </main>
+
+      <footer class="pagination">
+        <button id="prev-page">&larr;</button>
+        <div id="page-buttons"></div>
+        <select id="pagination-dropdown" class="page-select-dropdown"></select>
+        <button id="next-page">&rarr;</button>
+      </footer>
+    </div>
+    <script src="Js/movie.js"></script>
+  </body>
+</html>

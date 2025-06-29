@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Movies - Your Ultimate Movie Hub</title>
+    <link rel="stylesheet" href="stylesheet/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="slider-container" id="sliderContainer">
+      <div class="slider-image">
+        <img id="sliderMoviePoster" src="" alt="Movie Poster" />
+      </div>
+
+      <!-- Mobile Header Wrapper-->
+      <div class="mobile-header-wrapper">
+        <label class="hamburger" id="hamburgerToggle">
+          <input type="checkbox" id="hamburgerCheckbox" />
+          <svg viewBox="0 0 32 32">
+            <path
+              class="line line-top-bottom"
+              d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+            />
+            <path class="line" d="M7 16 27 16" />
+          </svg>
+        </label>
+        <div class="logo"><i class="fas fa-globe"></i> <span>AURA</span></div>
+        <button class="mobile-search-icon" id="mobileSearchIcon">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <!-- Desktop Header  -->
+      <header class="header" id="desktopHeader">
+        <div class="header-left">
+          <div class="logo"><i class="fas fa-globe"></i> <span>AURA</span></div>
+
+          <div class="search-bar" id="desktopSearchBar">
+            <input
+              type="text"
+              id="desktopSearchInput"
+              placeholder="Search Here"
+            />
+            <button id="desktopSearchButton">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="header-right">
+          <a href="log in.html" class="header-link"
+            ><i class="fas fa-sign-in-alt"></i> Log In</a
+          >
+          <a href="log in.html" class="header-link sign-up">Sign Up</a>
+          <div class="language-selector"><i class="fas fa-globe"></i> EN</div>
+          <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Desktop Navbar -->
+      <nav class="navbar" id="desktopNavbar">
+        <ul>
+          <li>
+            <a href="index.html" class="active"
+              ><i class="fas fa-home"></i>Home</a
+            >
+          </li>
+          <li>
+            <a href="movie.html"><i class="fas fa-th-large"></i>Movies</a>
+          </li>
+
+          <li>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+          </li>
+        </ul>
+        <div class="collapsed-slot" id="collapsedSlot"></div>
+      </nav>
+
+      <!-- Mobile Navigation Overlay  -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-auth-buttons">
+          <a href="log in.html" class="header-link"
+            ><i class="fas fa-sign-in-alt"></i> Log In</a
+          >
+          <a href="log in.html" class="header-link sign-up">Sign Up </a>
+        </div>
+        <nav class="mobile-navbar">
+          <ul>
+            <li>
+              <a href="index.html" class="active"
+                ><i class="fas fa-home"></i>Home</a
+              >
+            </li>
+            <li>
+              <a href="movie.html"><i class="fas fa-th-large"></i>Movies</a>
+            </li>
+            <li>
+              <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="mobile-language-selector">
+          <i class="fas fa-globe"></i> English (EN)
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <!--  Mobile Theme Toggle Button -->
+        <button
+          id="mobileThemeToggle"
+          class="theme-toggle-btn mobile-toggle-inline"
+        >
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+
+      <div class="slider-content">
+        <div class="slider-text">
+          <h1 id="sliderMovieTitle">Loading Movie...</h1>
+          <p id="sliderMovieOverview">
+            Fetching exciting movie details for you.
+          </p>
+
+          <button id="sliderLearnMoreBtn" type="button" class="learn-more-btn">
+            Watch Trailer
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="trailer-container"
+        id="trailerContainer"
+        style="display: none"
+      >
+        <div class="trailer-header">
+          <button id="closeTrailerBtn">← Back</button>
+        </div>
+        <iframe
+          id="trailerIframe"
+          width="100%"
+          height="480"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <button class="arrow left-arrow" id="leftArrow">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="arrow right-arrow" id="rightArrow">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Search Overlay  -->
+    <div class="mobile-search-overlay" id="mobileSearchOverlay">
+      <div class="search-bar-mobile">
+        <input type="text" id="mobileSearchInput" placeholder="Search Here" />
+        <button id="mobileSearchOverlayButton">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="close-search" id="closeMobileSearch">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <section class="genre-section">
+      <h2>LATEST MOVIES</h2>
+      <p>Catch the newest releases hot off the press</p>
+      <div class="movie-grid" id="latestMoviesGrid"></div>
+    </section>
+
+    <section class="genre-section">
+      <h2>TV SERIES</h2>
+      <p>Binge-worthy shows for your entertainment</p>
+      <div class="movie-grid" id="tvSeriesGrid"></div>
+    </section>
+
+    <section class="genre-section">
+      <h2>ACTION MOVIES</h2>
+      <p>High-octane thrillers and adventures</p>
+      <div class="movie-grid" id="actionMoviesGrid"></div>
+    </section>
+
+    <section class="genre-section">
+      <h2>ROMANCE MOVIES</h2>
+      <p>Heartwarming tales of love and connection</p>
+      <div class="movie-grid" id="romanceMoviesGrid"></div>
+    </section>
+
+    <section class="genre-section">
+      <h2>THRILLER MOVIES </h2>
+      <p>Edge-of-your-seat suspense and mystery</p>
+      <div class="movie-grid" id="thrillerMoviesGrid"></div>
+    </section>
+
+    <section class="search-results hidden" id="searchResultsSection">
+      <h2>Search Results</h2>
+      <div class="movie-grid" id="searchResultsGrid"></div>
+      <p id="noResultsMessage" class="hidden">
+        No movies found for your search.
+      </p>
+    </section>
+
+    <div id="trailer-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="trailer-player"></div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+      <div class="footer-top-bar">
+        <div class="footer-logo"><i class="fas fa-globe"></i> AURA</div>
+        <p class="copyright">© 2025 All rights reserved.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <button id="footerToggleArrow">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+      </div>
+
+      <div class="collapsible-footer-content">
+        <div class="footer-column">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movie.html">Movies</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Information</h3>
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Cookie policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="Js/index.js"></script>
+  </body>
+</html>

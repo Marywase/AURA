@@ -1,0 +1,745 @@
+/* ✅ 1. Correct font import */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Poppins", Georgia, sans-serif;
+  background: black;
+  position: relative;
+}
+
+.hero-section-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 2em;
+}
+
+#netflixBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 225px;
+  gap: 8px;
+  animation: scrollGrid 80s linear infinite;
+  z-index: 0;
+  padding: 10px;
+  background-color: black;
+}
+
+@keyframes scrollGrid {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-66.66%);
+  }
+}
+
+#netflixBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.poster-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), #000);
+  z-index: 1;
+}
+
+.about-section {
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Intro Content Styling */
+.intro-content {
+  position: relative;
+  font-family: "Poppins", Georgia, sans-serif;
+  color: white;
+  padding: 1.5rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  text-align: center;
+  max-width: 90%;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  min-height: 200px;
+}
+
+.intro-text h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+}
+
+#typewriter {
+  display: inline-block;
+  font-size: inherit;
+  font-weight: 800;
+  border-right: 2px solid #fff;
+  animation: blinkCursor 0.8s step-end infinite;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: inherit;
+  vertical-align: baseline;
+  max-width: 100%;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+.intro-paragraph {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #e0e0e0;
+  margin-top: 0.4rem;
+  line-height: 1.7;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease 2.8s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand {
+  color: #ff5050;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* The 'Behind Aura' section - this will scroll up and cover the hero section */
+
+.aura-highlight {
+  display: inline-block;
+  animation: auraColorChange 3s infinite linear;
+  font-weight: 700;
+}
+
+@keyframes auraColorChange {
+  0% {
+    color: #e65c00;
+  }
+  30% {
+    color: #efecf3;
+  }
+
+  50% {
+    color: #e50914;
+  }
+  75% {
+    color: #efecf3;
+  }
+  100% {
+    color: #e65c00;
+  }
+}
+
+.behind-aura {
+  position: relative;
+  background: #111;
+  color: #f0f0f0;
+  padding: 6rem 2rem 8rem;
+  text-align: center;
+  z-index: 3;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.behind-aura h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  font-family: "Poppins", Georgia, serif;
+  color: #f0f0f0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.behind-aura p {
+  max-width: 750px;
+  margin: 1.5rem auto;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.95;
+}
+
+/* Styles for the "Behind Aura" content fade-in effect controlled by JS */
+.behind-aura p,
+.behind-aura h2 {
+  opacity: 0;
+  transform: translateY(20px);
+}
+/* When 'visible' class is added by JS, animate them in */
+.behind-aura.visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
+}
+.behind-aura.visible p {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out 0.4s, transform 1s ease-out 0.4s;
+}
+
+.wall-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background-color: #1a1a1a;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px #2c2c2c;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testimonial-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.author-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.heart-icon {
+  margin-left: 0.5rem;
+  color: #e65c00;
+}
+.icon-circle {
+  background: #e50914;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+/* ✅ Join Aura Section */
+.join-aura {
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #111, #1a1a1a);
+  color: white;
+  text-align: center;
+}
+
+.join-aura h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.join-aura .highlight {
+  color: #e65c00;
+}
+
+.join-aura p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #e65c00;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #bf0810;
+}
+
+/* ✅ Credits / Wall of Tools Section */
+.credits {
+  background: #0b0b0b;
+  color: #eee;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.credits h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #bbb;
+}
+
+.credits-list li::before {
+  content: "🎬 ";
+  margin-right: 0.5rem;
+}
+
+/*  Responsive Media Queries */
+
+@media (max-width: 480px) {
+  .intro-text h1,
+  #typewriter {
+    font-size: 1.6rem;
+  }
+
+  .intro-paragraph {
+    font-size: 1rem;
+    line-height: 1.4;
+    width: 95%;
+  }
+
+  #netflixBackground {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-auto-rows: 130px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .behind-aura {
+    padding: 4rem 1.2rem 6rem;
+  }
+
+  .behind-aura h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .behind-aura p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 1rem auto;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card {
+    padding: 1rem;
+  }
+
+  .icon-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .wall-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .wall-container {
+    padding: 1.2rem;
+  }
+
+  .join-aura h2 {
+    font-size: 1.8rem;
+  }
+
+  .credits h2 {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  .join-aura p {
+    font-size: 1rem;
+  }
+
+  .join-aura {
+    padding: 1.8rem 1.8rem;
+  }
+}
+
+/*  Medium screens */
+@media (max-width: 768px) {
+  .intro-text h1,
+  #typewriter {
+    font-size: 2.2rem;
+  }
+
+  .intro-paragraph {
+    font-size: 1.1rem;
+  }
+
+  #netflixBackground {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    grid-auto-rows: 160px;
+  }
+
+  .behind-aura {
+    padding: 5rem 1.5rem 7rem;
+  }
+
+  .behind-aura h2 {
+    font-size: 2.2rem;
+  }
+
+  .behind-aura p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .testimonial-card {
+    padding: 1.1rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .wall-container {
+    padding: 1.5rem;
+  }
+
+  .wall-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .join-aura h2 {
+    font-size: 2rem;
+  }
+
+  .credits h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/*  Tablets / small laptops */
+@media (max-width: 900px) {
+  .intro-text h1,
+  #typewriter {
+    font-size: 2.5rem;
+  }
+
+  .intro-paragraph {
+    font-size: 1.2rem;
+  }
+
+  #netflixBackground {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-rows: 180px;
+  }
+
+  .behind-aura {
+    padding: 5rem 1.5rem 7rem;
+  }
+
+  .behind-aura h2 {
+    font-size: 2.4rem;
+  }
+
+  .behind-aura p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wall-container {
+    padding: 1.8rem;
+  }
+
+  .wall-container h2 {
+    font-size: 2rem;
+  }
+
+  .join-aura h2 {
+    font-size: 2rem;
+  }
+
+  .credits h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/*  Ultra-Small Phones  */
+@media (max-width: 360px) {
+  .intro-text h1,
+  #typewriter {
+    font-size: 1.4rem;
+  }
+
+  .intro-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    width: 95%;
+    padding: 0 0.5rem;
+  }
+
+  .intro-content {
+    padding: 1rem 0.5rem;
+  }
+
+  #netflixBackground {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-auto-rows: 120px;
+    padding: 4px;
+  }
+
+  .behind-aura {
+    padding: 3.5rem 1rem 5.5rem;
+  }
+
+  .behind-aura h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .behind-aura p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0.8rem auto;
+  }
+
+  .testimonial-text {
+    font-size: 0.8rem;
+  }
+
+  .testimonial-card {
+    padding: 0.8rem;
+  }
+
+  .wall-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .icon-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+  }
+
+  .join-aura h2 {
+    font-size: 1.8rem;
+  }
+
+  .credits h2 {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  .join-aura p {
+    font-size: 1rem;
+  }
+
+  .join-aura {
+    padding: 1.8rem 1.8rem;
+  }
+}
+
+/*  Small-Mid Phones  */
+@media (max-width: 430px) {
+  .intro-text h1,
+  #typewriter {
+    font-size: 1.6rem;
+  }
+
+  .intro-paragraph {
+    font-size: 1rem;
+    line-height: 1.4;
+    width: 90%;
+  }
+
+  #netflixBackground {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-auto-rows: 120px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .behind-aura {
+    padding: 4rem 1.2rem 6rem;
+  }
+
+  .behind-aura h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .behind-aura p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 1rem auto;
+  }
+
+  .testimonial-text {
+    font-size: 0.85rem;
+  }
+
+  .testimonial-card {
+    padding: 0.9rem;
+  }
+
+  .wall-container {
+    padding: 1rem;
+  }
+
+  .wall-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .join-aura h2 {
+    font-size: 1.8rem;
+  }
+
+  .credits h2 {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  .join-aura p {
+    font-size: 1rem;
+  }
+
+  .join-aura {
+    padding: 1.8rem 1.8rem;
+  }
+}
