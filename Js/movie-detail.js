@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log(`Fetched ${contentType} Data:`, data);
 
-      document.title = `${data.title || data.name || "Details"} - teeflix`;
+      document.title = `${data.title || data.name || "Details"} - Aura`;
 
       if (data.backdrop_path) {
         const backdropUrl = `${IMAGE_BASE_URL}original${data.backdrop_path}`;
